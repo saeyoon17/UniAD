@@ -50,6 +50,8 @@ class LoadMultiViewImageFromFilesInCeph(object):
                 img_bytes = self.file_client.get(img_path)
                 img = mmcv.imfrombytes(img_bytes)
             elif self.file_client_args['backend'] == 'disk':
+                img_path = './' + img_path.split('./')[1]
+                img = mmcv.imread(img_path, self.color_type)
                 img = mmcv.imread(img_path, self.color_type)
             images_multiView.append(img)
         # img is of shape (h, w, c, num_views)
