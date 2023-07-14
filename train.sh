@@ -1,6 +1,4 @@
 #!/bin/bash
-conda init bash
-exec bash
 conda activate uniad
 pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch
 export PATH=/usr/bin/gcc/bin:$PATH
